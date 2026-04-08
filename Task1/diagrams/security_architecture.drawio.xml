@@ -1,0 +1,116 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Security Architecture — Data Protection Model" id="sec_arch">
+    <mxGraphModel dx="1279" dy="889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;arcSize=4;fillColor=none;strokeColor=#666666;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Security architecture overlay" vertex="1">
+          <mxGeometry height="820" width="1530" x="35" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="1. Access layer WAF / API Gateway / Rate limit / mTLS" vertex="1">
+          <mxGeometry height="120" width="260" x="60" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="2. Identity layer AD/LDAP bridge, IAM, OIDC, MFA, PAM" vertex="1">
+          <mxGeometry height="120" width="260" x="60" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="3. Policy layer RBAC + ABAC + purpose-based access + consent" vertex="1">
+          <mxGeometry height="120" width="260" x="60" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="4. Application layer Portals, CRM, Booking, EHR, Billing, Notifications" vertex="1">
+          <mxGeometry height="140" width="320" x="420" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="5. Integration layer Partner API, schema validation, contract allow-list, DLP" vertex="1">
+          <mxGeometry height="140" width="320" x="420" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="6. Data layer PII DB / EHR DB / Billing DB / Document Store / Data Lake" vertex="1">
+          <mxGeometry height="140" width="330" x="860" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;size=0.18181818181818182;" value="7. Data classification &amp; tagging PUBLIC / INTERNAL / PII / MEDICAL / FINANCE + retention / owner / purpose / legal basis" vertex="1">
+          <mxGeometry height="140" width="360" x="860" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="8. Audit &amp; detection SIEM, audit trail, UEBA, anomaly detection, alerting" vertex="1">
+          <mxGeometry height="140" width="220" x="860" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="9. Ops &amp; resilience KMS, secrets, backup, DR, patching, vuln scan, SAST/DAST" vertex="1">
+          <mxGeometry height="140" width="220" x="1310" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;" value="Legend •&amp;nbsp;&lt;div&gt;&lt;div&gt;Шифрование при передаче: TLS/mTLS&amp;nbsp;&lt;/div&gt;&lt;div&gt;Шифрование в состоянии покоя: шифрование базы данных/хранилища&amp;nbsp;&lt;/div&gt;&lt;div&gt;Чтение конфиденциальных данных -&amp;gt; всегда проверяется&amp;nbsp;&lt;/div&gt;&lt;div&gt;Помеченные поля -&amp;gt; автоматическое применение политик в CI/CD и среде выполнения&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="310" x="1210" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="6" value="authenticated traffic">
+          <mxGeometry relative="1" x="-0.2222" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="370" y="320" />
+              <mxPoint x="370" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="6" value="identity&lt;div&gt;&lt;div&gt;&lt;div&gt;&amp;nbsp;claims&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" x="0.1765" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="6" value="allow&amp;nbsp;&lt;div&gt;&amp;nbsp;deny&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;mask&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;purpose&lt;/div&gt;">
+          <mxGeometry relative="1" x="0.4375" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="400" y="720" />
+              <mxPoint x="400" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="8" value="read / write">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="420" />
+              <mxPoint x="800" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="8" value="controlled exchange">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" edge="1" parent="1" source="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;entryX=0.452;entryY=0.029;entryDx=0;entryDy=0;entryPerimeter=0;" target="8" value="field tags + retention">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1009" y="260" />
+              <mxPoint x="1009" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="10" value="audit events">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="490" />
+              <mxPoint x="790" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="10" value="integration audit">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;dashed=1;strokeColor=#666666;" target="8" value="keys&lt;div&gt;&amp;nbsp;backups&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;recovery&lt;/div&gt;">
+          <mxGeometry relative="1" x="-0.1662" y="20" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="1260" y="360" />
+              <mxPoint x="1260" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.4;" target="7" value="partner flows">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
