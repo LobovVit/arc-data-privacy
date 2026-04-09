@@ -16,7 +16,7 @@
 
 ---
 
-### Приём врача
+### Прием врача
 Doctor → Medical Service → DB → Audit
 
 ---
