@@ -1,0 +1,57 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="C4 Context To-Be Senior" id="0">
+    <mxGraphModel dx="959" dy="667" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="shape=umlActor;" value="Пациент" vertex="1">
+          <mxGeometry height="70" width="40" x="130" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=umlActor;" value="Врач" vertex="1">
+          <mxGeometry height="70" width="40" x="130" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=umlActor;" value="Ресепшен" vertex="1">
+          <mxGeometry height="70" width="40" x="130" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=umlActor;" value="Аналитик" vertex="1">
+          <mxGeometry height="70" width="40" x="130" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;fillColor=#dae8fc;" value="Medicamente Digital Platform&#xa;(CRM, Booking, EHR, Billing)" vertex="1">
+          <mxGeometry height="160" width="300" x="300" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;fillColor=#e1d5e7;" value="IAM Platform&#xa;(OIDC, MFA)" vertex="1">
+          <mxGeometry height="100" width="240" x="650" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;fillColor=#d5e8d4;" value="Privacy Platform&#xa;(ABAC, Tagging, Consent)" vertex="1">
+          <mxGeometry height="100" width="240" x="650" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;fillColor=#fff2cc;" value="Analytics Platform&#xa;(Data Lake, BI/ML)" vertex="1">
+          <mxGeometry height="100" width="240" x="650" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="2" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="3" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="4" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="5" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="10" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="10" style="exitX=0.97;exitY=0.956;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
